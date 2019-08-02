@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Mahi",
+            "request": "launch",
+            "mainClass": "Mahi"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Mahee",
+            "request": "launch",
+            "mainClass": "Mahee"
+        }
+    ]
+}
