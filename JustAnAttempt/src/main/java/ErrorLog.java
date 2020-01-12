@@ -1,42 +1,81 @@
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
 
-	public class ErrorLog {
-		  public static void main(String[] args) {
-		  Frame frm=new Frame("ERROR LOG");
-		  Label lbl = new Label("ENTER DETAILS ACCORDINGLY");
-		  frm.add(lbl);
-		  frm.setSize(550,250);
-		  frm.setVisible(true);
-		  frm.addWindowListener(new WindowAdapter(){
-		  public void windowClosing(WindowEvent e){
-		  System.exit(0);
-		  }
-		  });
-		  Panel p = new Panel();
-		  Panel p1 = new Panel();
-		  JButton b=new JButton("SELECT");  
-		    b.setBounds(200,60,75,20);  
-		    String languages[]={"CAMS","BIC","AUTOGIRO","UP","TILLBIC"};        
-		    final JComboBox cb=new JComboBox(languages);    
-		      
-		  Label jFirstName = new Label("INIT Number");
-		  TextField lFirstName = new TextField(20);
-		  Label jLastName =new Label("ARS Number");
-		  TextField lLastName=new TextField(20);
-		  p.setLayout(new GridLayout(5,1));
-		  p.add(cb); 
-		  p.add(b);     
-		  p.setVisible(true);       
-		  p.add(jFirstName);
-		  p.add(lFirstName);
-		  p.add(jLastName);
-		  p.add(lLastName);
-		  Button Submit=new Button("Submit");
-		  p.add(Submit);
-		  p1.add(p);
-		  frm.add(p1,BorderLayout.AFTER_LAST_LINE);
-		  }
-		}
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.AbstractListModel;
+import javax.swing.ListSelectionModel;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.border.CompoundBorder;
+import com.toedter.calendar.JDateChooser;
+import java.awt.Font;
+import javax.swing.JTextField;
+
+public class ErrorLog extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ErrorLog frame = new ErrorLog();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public ErrorLog() {
+		setTitle("Error Log");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(300, 100, 850, 600);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JList list = new JList();
+		list.setBounds(39, 45, 1, 1);
+		contentPane.add(list);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBorder(new CompoundBorder());
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"BIC", "CAMS", "AUTOGIRO", "TILLBIC", "UP", "FASIT"}));
+		comboBox.setToolTipText("Select an Application");
+		comboBox.setBounds(12, 13, 136, 22);
+		contentPane.add(comboBox);
+		
+		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.setBounds(182, 65, 118, 22);
+		contentPane.add(dateChooser);
+		
+		JLabel lblNewLabel = new JLabel("Date");
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 22));
+		lblNewLabel.setBounds(12, 65, 87, 22);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Job");
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 22));
+		lblNewLabel_1.setBounds(12, 124, 103, 22);
+		contentPane.add(lblNewLabel_1);
+		
+		textField = new JTextField();
+		textField.setBounds(184, 124, 116, 22);
+		contentPane.add(textField);
+		textField.setColumns(10);
+	}
+}
