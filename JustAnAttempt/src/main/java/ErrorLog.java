@@ -1,13 +1,9 @@
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
 import javax.swing.ButtonGroup;
-import javax.swing.ListSelectionModel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.border.CompoundBorder;
@@ -15,8 +11,6 @@ import com.toedter.calendar.JDateChooser;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
-import java.awt.Toolkit;
-import javax.swing.border.TitledBorder;
 
 public class ErrorLog extends JFrame {
 
